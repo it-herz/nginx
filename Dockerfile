@@ -113,7 +113,7 @@ RUN GPG_KEYS=B0F4253373F8F6F510D42178520A9993A1C052F8 \
 #ADD nginx.conf /etc/nginx/
 RUN mkdir -p /var/www/html
 
-VOLUME /var/www/html /etc/nginx/ /etc/nginx/conf.d/
+VOLUME /var/www/html
 
 EXPOSE 80
 
