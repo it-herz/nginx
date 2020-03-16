@@ -17,8 +17,8 @@ RUN GPG_KEYS=B0F4253373F8F6F510D42178520A9993A1C052F8 \
 		--http-client-body-temp-path=/var/cache/nginx/client_temp \
 		--http-proxy-temp-path=/var/cache/nginx/proxy_temp \
 		--http-fastcgi-temp-path=/var/cache/nginx/fastcgi_temp \
-		--user=nginx \
-		--group=nginx \
+		--user=www-data \
+		--group=www-data \
 		--with-http_ssl_module \
 		--with-http_gunzip_module \
 		--with-http_gzip_static_module \
@@ -30,8 +30,8 @@ RUN GPG_KEYS=B0F4253373F8F6F510D42178520A9993A1C052F8 \
 		--with-file-aio \
 		--with-http_v2_module \
 	" \
-	&& addgroup -S nginx \
-	&& adduser -D -S -h /var/cache/nginx -s /sbin/nologin -G nginx nginx \
+	&& addgroup -S www-data \
+	&& adduser -D -S -h /var/cache/nginx -s /sbin/nologin -G www-data www-data \
 	&& apk add --no-cache --virtual .build-deps \
 		gcc \
 		libc-dev \
